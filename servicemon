@@ -1,0 +1,36 @@
+#!/bin/bash
+#Script that monitors avaibility of a service
+#### EXIT 3 : No Arguement
+
+#make sure thet the service name is provided as an arguemt
+if [ -z $1 ]; then
+	echo you need to provide a service name to monitor
+	read SERVICE
+else
+	SERVICE=$1
+fi
+
+
+#run without stopping to do the monitoring
+
+#run without stopping to monitor the service
+if ps aux | grep $SERVICE | grep -v grep | grep -v servicemon > /dev/null
+then
+	echo "service $SERVICE is running"
+else
+	echo "service $SERVICE is not running"
+	echo "Make sure $SERVICE is running and try again"
+	exit 4
+fi
+
+
+
+
+# verify the the SERVICE is runnibg
+## monitor the service
+while ps aux | grep $SERVICE | grep -v grep | grep -v servicemon > /dev/null  
+do
+	sleep 10
+done
+# action if service is failing 
+service start $SERVICE

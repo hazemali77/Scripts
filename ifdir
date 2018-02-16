@@ -1,0 +1,17 @@
+#!/bash/bin
+
+#if [ -d $INPUT ]
+#then
+#	echo $1 is a directory
+#elif [ -f $INPUT ]
+#then 
+#	echo $1 is a file
+#else
+#	echo $1 is a neither file nor a directory.
+#fi
+#exit 0
+#
+#Alternative Notation
+###########
+[ -d $1 ] && echo $1 is a directory
+[ -f $1 ] && echo $1 is a file || echo $1 is neither a file or a diectory

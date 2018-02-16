@@ -1,0 +1,8 @@
+#!/bin/bash
+#This script copies /var/log contents and clear curent contents of the file.
+#Usage: ./clear logs
+cp /var/log/messages /var/log/mesages.$(date +%H-%M-%d-%m-%y)
+cat /dev/null > /var/log/messages
+echo log files are copied.
+
+exit 0
